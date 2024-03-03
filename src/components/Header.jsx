@@ -1,5 +1,6 @@
 import React from "react";
 import reactlogo from "/src/assets/react.svg";
+import { NavLink } from "react-router-dom";
 
 export default function Header() {
   return (
@@ -7,13 +8,34 @@ export default function Header() {
       <img src={reactlogo} alt="logo" />
       <ul className="flex gap-4">
         <li>
-          <a href="/">Home</a>
+          <NavLink
+            className={({ isActive, isPending }) =>
+              isPending ? " " : isActive ? "underline text-blue-500" : ""
+            }
+            to="/"
+          >
+            Home
+          </NavLink>
         </li>
         <li>
-          <a href="/about">About</a>
+          <NavLink
+            className={({ isActive, isPending }) =>
+              isPending ? " " : isActive ? "underline text-blue-500" : ""
+            }
+            to="/about"
+          >
+            About
+          </NavLink>
         </li>
         <li>
-          <a href="/contact">Contact</a>
+          <NavLink
+            className={({ isActive, isPending }) =>
+              isPending ? " " : isActive ? "underline text-blue-500" : ""
+            }
+            to="/contact"
+          >
+            Contact
+          </NavLink>
         </li>
       </ul>
     </header>
