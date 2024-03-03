@@ -1,11 +1,17 @@
-import React from "react";
+import React, { lazy } from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import "./index.css";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import Home from "./components/Home.jsx";
-import About from "./components/About.jsx";
-import Contact from "./components/Contact.jsx";
+// import Home from "./components/Home.jsx";
+// import About from "./components/About.jsx";
+// import Contact from "./components/Contact.jsx";
+
+const Home = lazy(() => wait(2000).then(() => import("./components/Home")));
+const About = lazy(() => wait(2000).then(() => import("./components/About")));
+const Contact = lazy(() =>
+  wait(2000).then(() => import("./components/Contact"))
+);
 
 const router = createBrowserRouter([
   {
@@ -27,6 +33,14 @@ const router = createBrowserRouter([
     ],
   },
 ]);
+
+const wait = (time) => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve();
+    }, time);
+  });
+};
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <RouterProvider router={router} />
