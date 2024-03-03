@@ -1,5 +1,9 @@
 import React from "react";
 
 export default function Contact() {
-  return <div>My Contact - 8308569416</div>;
+  return (
+    <div>
+      Follow me on <a href="https://github.com/Aftab1112"></a>GitHub
+    </div>
+  );
 }
